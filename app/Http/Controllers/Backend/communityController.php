@@ -18,7 +18,8 @@ class communityController extends Controller
     public function index()
     {
         //
-        return 'ok';
+        $communities = Community::all();
+        return Inertia::render('Communities/index',compact('communities'));
     }
 
     /**
