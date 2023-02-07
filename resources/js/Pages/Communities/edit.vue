@@ -6,22 +6,24 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head,   useForm } from '@inertiajs/vue3';
-const form = useForm({
-    name: '',
-    description:'',
-    slug: ''
-});
+
+const props = defineProps({
+    community:Object,
+})
+
+const form = useForm(props.community);
 
 const submit = () => {
-    form.post(route('communities.store'));
+    form.put(route('communities.update', props.community.id));
 };
+
 </script>
 
 <template>
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create Communities</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Edit Communities</h2>
         </template>
 
         <div class ="py-12">
@@ -61,12 +63,13 @@ const submit = () => {
 
                             <InputError class="mt-2" :message="form.errors.description" />
                         </div>
+                
 
                         <div class="flex items-center justify-end mt-4">
                         
 
                             <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                                Create Community 
+                                Make Changes !!! 
                             </PrimaryButton>
                         </div>
                     </form>
