@@ -31,7 +31,7 @@ defineProps({
           
 
              
-            <div class="max-w-7xl overflow-x-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl overflow-x-auto ">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -72,10 +72,15 @@ defineProps({
                             text-sm text-gray-500">
                             {{community.slug}} 
                             </td>
-                            <td class="py-4 px-6 space-y-[5px]">
+                            <td class="py-4 px-6 ">
                                 <Link as="button" type="button" :href="route('communities.edit',community.id)" class="inline-flex items-center justify-center rounded-md border border-transparent bg-orange-500 px-4 py-2 text-sm
                                     font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2
-                                    focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto ">Edit Community
+                                    focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto mr-3">Edit Community
+                                </Link> 
+
+                                  <Link as="button" type="button" method="delete" :href="route('communities.destroy',community.id)" class="inline-flex items-center justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm
+                                    font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2
+                                    focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto ">Delete Community
                                 </Link>                   
                             </td>
                         </tr>
