@@ -1,11 +1,12 @@
 <?php
 
 
-use App\Http\Controllers\Backend\communityController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
-use Inertia\Inertia;
+use App\Http\Controllers\Backend\communityController;
+use App\Http\Controllers\Frontend\SubredditController;
 
 
 /*
@@ -27,6 +28,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/r/{slug}',[SubredditController::class,'show'])->name('subreddit.show');
 
 
 //rewriting the default middleware 
