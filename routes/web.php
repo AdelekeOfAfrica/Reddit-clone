@@ -5,8 +5,9 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontend\Communities;
 use App\Http\Controllers\Backend\communityController;
-use App\Http\Controllers\Frontend\SubredditController;
+
 
 
 /*
@@ -29,7 +30,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/r/{slug}',[SubredditController::class,'show'])->name('subreddit.show');
+Route::get('/r/{slug}',[Communities::class,'show'])->name('community.show');
 
 
 //rewriting the default middleware 
