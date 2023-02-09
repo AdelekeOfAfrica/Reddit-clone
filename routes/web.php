@@ -32,7 +32,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/r/{slug}',[Communities::class,'show'])->name('community.show');
+Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.community.show');
 
 
 //rewriting the default middleware 
