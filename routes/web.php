@@ -7,6 +7,8 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\Communities;
 use App\Http\Controllers\Backend\communityController;
+use App\Http\Controllers\Backend\CommunityPostController;
+
 
 
 
@@ -40,6 +42,7 @@ Route::group(['middleware'=> ['auth', 'verified']], function(){
     })->name('dashboard');
 
 Route::resource('/communities',communityController::class);
+Route::resource('/dashboard/communities.post',CommunityPostController::class);
     
 });
 
