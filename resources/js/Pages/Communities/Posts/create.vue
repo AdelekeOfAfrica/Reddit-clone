@@ -18,7 +18,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('communities.post.store', props.community.slug));
+    form.post(route('communities.posts.store', props.community.slug));
 };
 </script>
 

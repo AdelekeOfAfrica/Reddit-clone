@@ -49,7 +49,7 @@ class CommunityPostController extends Controller
 
         ]);
 
-        return Redirect::route('frontend.community.show', $community->slug);
+        return Redirect::route('frontend.communities.show', $community->slug);
     }
 
     /**

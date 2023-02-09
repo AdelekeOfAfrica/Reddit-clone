@@ -32,7 +32,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.community.show');
+Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.communities.show');
 
 
 //rewriting the default middleware 
@@ -42,7 +42,7 @@ Route::group(['middleware'=> ['auth', 'verified']], function(){
     })->name('dashboard');
 
 Route::resource('/communities',communityController::class);
-Route::resource('/dashboard/communities.post',CommunityPostController::class);
+Route::resource('/dashboard/communities.posts',CommunityPostController::class);
     
 });
 
