@@ -1,5 +1,7 @@
 <template>
-  <div class="mt-4
+  <div class="
+    mt-4
+    p-6
     max-w-4xl
     flex
     bg-white
@@ -10,7 +12,7 @@
       <div class="mr-3">
       </div>
 
-      <div class="flex m-2 p-2 ">
+      <div class="flex  ">
         <Link>{{community}}</Link>
         <div class="flex m-2 p-2">
             Posted by
@@ -38,7 +40,7 @@
           {{post.description}}
       </p>
 
-      <div class="flex m-2 p-2">
+      <div class="flex ">
         <p class="mr-4 p-2">Comments 5</p>
         <Link
          

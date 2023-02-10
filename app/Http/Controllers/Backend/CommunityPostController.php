@@ -41,7 +41,7 @@ class CommunityPostController extends Controller
     public function store(StorePostRequest $request, Community $community)
     {
         //
-        $community->post()->create([
+        $community->posts()->create([
             'user_id'=>auth()->id(),
             'title'=>$request->title,
             'url'=>$request->url,
