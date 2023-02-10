@@ -25,7 +25,7 @@
             </div>
         </div>
     </section>
-    <h1> community show {{community.name}} page </h1>
+    
 </GuestLayout>
 </template>
 
