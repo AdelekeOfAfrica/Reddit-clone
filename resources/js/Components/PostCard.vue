@@ -10,19 +10,18 @@
       <div class="mr-3">
       </div>
 
-      <div class="flex m-2 p-2 text-sm">
-      <Link>Healthcare Assistant</Link>
-       <div class="flex">
-          Posted by
-          <span class="font-semibold mx-1">Adelekeofafrica</span>
-          2pm
-        </div>
+      <div class="flex m-2 p-2 ">
+        <Link>{{community}}</Link>
+        <div class="flex m-2 p-2">
+            Posted by
+            <span class="font-semibold ml-1">{{post.username}}</span>
+          </div>
       </div>
 
       <Link>
         <h5
           class="
-            mb-2
+            mb-4
             text-2xl
             font-bold
             tracking-tight
@@ -31,12 +30,12 @@
             hover:text-indigo-700
           "
         >
-          Vacancy for healthcare 
+         {{post.title}} 
         </h5>
       </Link>
 
-       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        there is currently vacancy at one store in ojota 
+       <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">
+          {{post.description}}
       </p>
 
       <div class="flex m-2 p-2">
@@ -82,6 +81,7 @@ import {  Link } from '@inertiajs/vue3';
 
 defineProps({
   post: Object,
+  community:Object
  
 });
 

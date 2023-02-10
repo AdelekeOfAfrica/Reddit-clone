@@ -14,7 +14,7 @@
     </template>
 
     <section class ="m-2 p-2">
-        <PostCard v-for="post in posts.data" :key="post.id" />
+        <PostCard v-for="post in posts.data" :post="post" :community="community.name" :key="post.id" />
     </section>
     <h1> community show {{community.name}} page </h1>
 </GuestLayout>
@@ -28,6 +28,6 @@ import PostCard from '@/components/PostCard.vue'
 
 defineProps({
     community:Object(),
-    posts:Object
+    posts:String
 })
 </script>
