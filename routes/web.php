@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\Communities;
+use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Backend\communityController;
 use App\Http\Controllers\Backend\CommunityPostController;
 
@@ -33,6 +34,7 @@ Route::get('/', function () {
 });
 
 Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.communities.show');
+Route::get('/r/{community_slug}/post/{post:slug}',[PostController::class,'show'])->name('frontend.communities.post.show');
 
 
 //rewriting the default middleware 

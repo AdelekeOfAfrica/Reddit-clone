@@ -43,7 +43,7 @@
       <div class="flex ">
         <p class="mr-4 p-2">Comments 5</p>
         <Link
-         
+          :href="route('frontend.communities.post.show',[community, post.slug])"
           class="
             inline-flex
             items-center
