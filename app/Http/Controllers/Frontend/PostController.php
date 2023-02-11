@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Community;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostShowResource;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
 
         $community = Community::where('slug',$community_slug)->first();
 
-        $post = Post::where('slug',$slug)->first();
+        $post = new PostShowResource(Post::where('slug',$slug)->first());
 
         return Inertia::render('Frontend/Post/show',compact('community','post'));
 

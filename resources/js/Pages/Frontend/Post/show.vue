@@ -11,11 +11,22 @@
                      </h2>
                 </div>
                 <div class="m-2 p-2 bg-white">
-                    <span class="text-sm text-slate-400">posted by someone </span>
-                    <h1 class="font-semibold text-3xl text-black">{{post.title}}</h1>
-                    <p class="m-2 p-2 bg-white text-black">{{post.description}}</p>
-                    <a :href="post.url" class="font-semibold text-blue-500 text-sm hover:text-blue-300 ">{{post.url}}</a>
+                    <span class="text-sm text-slate-400">posted by {{post.data.username}}</span> <!-- added the post.data.username cause of the resources added to it  -->
+                    
+                    <div class="flex flex-col md:flex-row  ">
+                        <Link class="font-semibold hover:text-blue-400 text-blue-600 mr-3" :href="route('communities.posts.edit',[community.slug, post.data.slug])">
+                            Edit  <!-- we are using community.slug, post.data.slug cause these are the 2 that were passed from the url -->
+                        </Link>
+                        <Link class="font-semibold hover:text-red-600  text-red-600" :href="route('communities.posts.edit',[community.slug, post.data.slug])">
+                            Delete  
+                        </Link>
+                    </div>
+
+                    <h1 class="font-semibold text-3xl text-black">{{post.data.title}}</h1>
+                    <p class=" m-2 p-2 bg-white text-black">{{post.data.description}}</p>
+                    <a :href="post.url" class="font-semibold text-blue-500 text-sm hover:text-blue-300 ">{{post.data.url}}</a>
                 </div>
+
             </div>
             <div class="w-full md:w-4/12 p-4">
                 <div class="m-2 p-2 bg-blue-700 text-white">
