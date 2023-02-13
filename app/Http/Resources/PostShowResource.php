@@ -21,7 +21,8 @@ class PostShowResource extends JsonResource
             'description'=>$this->description,
             'username'=>$this->user->username, 
             'slug'=>$this->slug,
-            'url'=>$this->url
+            'url'=>$this->url,
+            'owner'=>auth()->id() ==$this->user_id ? true:false,
 
         ];
     }
