@@ -17,7 +17,7 @@
                         <Link class="font-semibold hover:text-blue-400 text-blue-600 mr-3" :href="route('communities.posts.edit',[community.slug, post.data.slug])">
                             Edit  <!-- we are using community.slug, post.data.slug cause these are the 2 that were passed from the url -->
                         </Link>
-                        <Link class="font-semibold hover:text-red-600  text-red-600" :href="route('communities.posts.edit',[community.slug, post.data.slug])">
+                        <Link class="font-semibold hover:text-red-600  text-red-600" method="delete" type="button" as="button" :href="route('communities.posts.destroy',[community.slug, post.data.slug])">
                             Delete  
                         </Link>
                     </div>
