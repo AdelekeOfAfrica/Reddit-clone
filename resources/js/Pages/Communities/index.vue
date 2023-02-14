@@ -61,7 +61,7 @@ defineProps({
                             <td class="text-blue-500
                               hover:text-blue-700
                               font-semibold"> 
-                            {{community.name}}
+                            <Link  class="text-blue-500 hover:text-blue-700 font-semibold" as="button" type="button" :href="route('frontend.communities.show',community.slug)">{{community.name}}</Link> <!--adding the link to the community -->
                             
                             </td>
                             <td class="py-4 px-6">

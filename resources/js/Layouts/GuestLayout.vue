@@ -32,7 +32,7 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                           <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
+                            <div class="ml-3 relative" v-if="$page.props.auth.auth_check">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -67,8 +67,18 @@ const showingNavigationDropdown = ref(false);
                                     </template>
                                 </Dropdown>
                             </div>
+                            <!-- To check if user is logged in -->
+                            <template v-else>
+                                <Link :href="route('login')" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</Link>
 
-                      
+                                <Link
+                                    v-if="canRegister"
+                                    :href="route('register')"
+                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+                                    >Register</Link
+                                >
+                            </template>
+                    
 
                         <!-- Hamburger -->
                         <div class="-mr-2 flex items-center sm:hidden">
