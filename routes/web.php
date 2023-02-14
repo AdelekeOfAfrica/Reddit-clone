@@ -39,9 +39,6 @@ Route::get('/r/{community_slug}/post/{post:slug}',[PostController::class,'show']
 
 //rewriting the default middleware 
 Route::group(['middleware'=> ['auth', 'verified']], function(){
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
 
 Route::resource('/communities',communityController::class);
 Route::resource('/dashboard/communities.posts',CommunityPostController::class);
