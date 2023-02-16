@@ -73,6 +73,7 @@ class CommunityPostController extends Controller
     public function edit(Community $community, Post $post)
     {
         //
+        $this->authorize('update',$post);
         return Inertia::render('Communities/Posts/edit',compact('community','post'));
     }
 
@@ -86,6 +87,7 @@ class CommunityPostController extends Controller
     public function update(StorePostRequest $request, Community $community, Post $post)
     {
         //
+        $this->authorize('update',$post);
         $post->update($request->validated());
 
         return Redirect::route('frontend.communities.show', $community->slug);
@@ -100,6 +102,7 @@ class CommunityPostController extends Controller
     public function destroy(Community $community, Post $post)
     {
         //
+        $this->authorize('delete',$post);
         $post->delete();
 
         return Redirect::route('frontend.communities.show', $community->slug);
