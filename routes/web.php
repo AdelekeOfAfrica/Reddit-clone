@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\Communities;
 use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Backend\communityController;
+use App\Http\Controllers\Frontend\PostCommentController;
 use App\Http\Controllers\Backend\CommunityPostController;
 
 
@@ -35,11 +36,10 @@ Route::get('/', function () {
 
 Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.communities.show');
 Route::get('/r/{community_slug}/post/{post:slug}',[PostController::class,'show'])->name('frontend.communities.post.show');
-
+Route::post('/r/{community_slug}/post/{post:slug}/comments',[PostCommentController::class,'store'])->name('frontend.post.comments');
 
 //rewriting the default middleware 
 Route::group(['middleware'=> ['auth', 'verified']], function(){
-
 Route::resource('/communities',communityController::class);
 Route::resource('/dashboard/communities.posts',CommunityPostController::class);
     

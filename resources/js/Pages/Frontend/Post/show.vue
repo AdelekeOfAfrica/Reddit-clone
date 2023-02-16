@@ -1,6 +1,6 @@
 <template>
     <GuestLayout>
-        <section class="flex flex-col md:flex-row m-2 p-2">
+        <section class="flex flex-col md:flex-row m-2 p-2 ">
             <div class="w-full md:w-8/12">
                 <div class="m-2 p-2 bg-white">
                     <h2 class="font-semibold text-2xl text-grey-800 ">
@@ -25,7 +25,36 @@
                     <h1 class="font-semibold text-3xl text-black">{{post.data.title}}</h1>
                     <p class=" m-2 p-2 bg-white text-black">{{post.data.description}}</p>
                     <a :href="post.url" class="font-semibold text-blue-500 text-sm hover:text-blue-300 ">{{post.data.url}}</a>
+                    <!-- comment section -->
+                    <hr />
+                    <div>
+                        <ul role="list" class="divide-y divide-gray-200 m-2 p-2">
+                            <li v-for="(comment, index) in post.data.comments" :key="index" class="py-4 flex flex-col">
+                            <div class="text-sm">Comments by <span class="font-semibold ml-1 text-slate-700">{{comment.username}}</span></div>
+                            <div class="text-slate-600 m-2 p-2"> {{comment.content}} </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end of comment section -->
+                    
+                    <hr />
+                    <!-- comment input Section -->
+
+                    <form class="m-2 p-2 max-w-md" @submit.prevent="submit" v-if="$page.props.auth.auth_check">
+                        <div class="mt-2">
+                            <label for="comment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Comment </label>
+                            <textarea v-model="form.content" id="comment" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg" />
+                        </div>
+
+                        <div class="mt-2">
+                            <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Comment</button>
+                        </div>
+                    </form>
+
+                    <!-- End of Comment Section -->
+
                 </div>
+
 
             </div>
             <div class="w-full md:w-4/12 p-4">
@@ -39,12 +68,23 @@
 
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue"
-import {  Link } from '@inertiajs/vue3'
-import PostCard from '@/components/PostCard.vue'
-import Pagination from '@/components/Pagination.vue'
+import {  Link, useForm } from '@inertiajs/vue3'
 
-defineProps({
+
+const props= defineProps({
     community:Object(),
     post:Object
-})
+});
+
+
+
+const form = useForm({
+    content: '',
+});
+
+const submit = () => {
+    form.post(route("frontend.post.comments", [props.community.slug, props.post.data.slug]),{
+        onSuccess:()=>form.reset('content')
+    });
+};  
 </script>
