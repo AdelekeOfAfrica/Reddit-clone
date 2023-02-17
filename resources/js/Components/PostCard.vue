@@ -3,19 +3,25 @@
       mt-4
       p-6
       max-w-4xl
-      
+      flex
       bg-white
       rounded-lg
       border border-gray-200
       shadow-md
       dark:bg-gray-800 dark:border-gray-700">
         <div class="mr-3">
+            <!-- creating the upvote -->
+            <div class="mr-3">
+              <PostVote />
+            </div>
+          <!-- ending of the upvote-->
         </div>
-  
-        <div class="flex  ">
+ 
+        <div class="flex m-2 p-2 text-sm ">
           <Link>{{community}} | Posted by {{post.username}}</Link>
         </div>
   
+        <div class="flex">
         <Link>
           <h5
             class="
@@ -31,6 +37,7 @@
            {{post.title}} 
           </h5>
         </Link>
+        </div>
   
          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">
             {{post.description}}
@@ -76,6 +83,7 @@
 
     <script setup>
   import {  Link } from '@inertiajs/vue3';
+  import PostVote from '@/Components/PostVote.vue';
   
   defineProps({
     post: Object,

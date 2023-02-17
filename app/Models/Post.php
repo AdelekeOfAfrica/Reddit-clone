@@ -13,7 +13,7 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable =['user_id','community_id','title','slug','description','url'];
+    protected $fillable =['user_id','community_id','title','slug','description','url','vote'];
 
     
     // Here the source of the data is title 

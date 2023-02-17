@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostVoteController;
 use App\Http\Controllers\Frontend\Communities;
 use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Backend\communityController;
@@ -42,6 +43,9 @@ Route::post('/r/{community_slug}/post/{post:slug}/comments',[PostCommentControll
 Route::group(['middleware'=> ['auth', 'verified']], function(){
 Route::resource('/communities',communityController::class);
 Route::resource('/dashboard/communities.posts',CommunityPostController::class);
+
+Route::post('/posts/{post:slug}/upvote',[PostVoteController::class,'upvote'])->name('posts.upvote');
+Route::post('/posts/{post:slug}/downvote',[PostVoteController::class,'downvote'])->name('posts.downvote');
     
 });
 
