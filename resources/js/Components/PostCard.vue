@@ -12,7 +12,7 @@
         <div class="mr-3">
             <!-- creating the upvote -->
             <div class="mr-3">
-              <PostVote :post="post.slug" />
+              <PostVote :post="post" />
             </div>
           <!-- ending of the upvote-->
         </div>
