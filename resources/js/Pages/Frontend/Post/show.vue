@@ -10,6 +10,7 @@
                         </Link>
                      </h2>
                 </div>
+                
                 <div class="m-2 p-2 bg-white">
                     <span class="text-sm text-slate-400">posted by {{post.data.username}}</span> <!-- added the post.data.username cause of the resources added to it  -->
                     
