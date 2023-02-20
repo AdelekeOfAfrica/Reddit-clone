@@ -44,7 +44,7 @@
         </p>
   
         <div class="flex ">
-          <p class="mr-4 p-2">Comments 5</p>
+          <p class="mr-4 p-2">Comments {{post.comments_count}}</p>
           <Link
             :href="route('frontend.communities.post.show',[community, post.slug])"
             class="

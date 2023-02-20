@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostVoteController;
 use App\Http\Controllers\Frontend\Communities;
 use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\Backend\communityController;
 use App\Http\Controllers\Frontend\PostCommentController;
 use App\Http\Controllers\Backend\CommunityPostController;
@@ -26,14 +27,7 @@ use App\Http\Controllers\Backend\CommunityPostController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
 
 Route::get('/r/{slug}',[Communities::class,'show'])->name('frontend.communities.show');
 Route::get('/r/{community_slug}/post/{post:slug}',[PostController::class,'show'])->name('frontend.communities.post.show');
