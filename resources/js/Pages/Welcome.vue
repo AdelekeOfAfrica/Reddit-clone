@@ -6,11 +6,10 @@
             </div>
 
             <div class="w-4/12 p-4">
-                <div class="m-2 p-2 bg-blue-700 text-white">
-                    <h2>Top Communities </h2>
-                </div>
                 <div>
-                 <CommunityList :communities="communities.data" />
+                 <CommunityList :communities="communities.data">
+                    <template #title>Top Communities</template> <!-- this is to pass the content of title Top Communities to the CommunityList Component-->
+                 </CommunityList>
                 </div>
             </div>
         </section>
