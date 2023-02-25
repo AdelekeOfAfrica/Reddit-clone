@@ -20,7 +20,7 @@ class Communities extends Controller
             $query->where('user_id',auth()->id());
         }])->withCount('comments')->paginate(12));
 
-        $communities=CommunityResource::collection(Community::with('posts')->latest()->take(4)->get());
+        $communities=CommunityResource::collection(Community::withCount('posts')->latest()->take(4)->get());
 
         return Inertia::render('Frontend/Communities/show',compact('community','posts','communities'));
 

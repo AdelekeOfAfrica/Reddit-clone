@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Community;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 use App\Http\Resources\PostShowResource;
 
 class PostController extends Controller
@@ -19,7 +20,9 @@ class PostController extends Controller
 
         $post = new PostShowResource(Post::with('comments')->where('slug',$slug)->first());
 
-        return Inertia::render('Frontend/Post/show',compact('community','post'));
+        $posts = PostResource::collection($community->posts()->orderby('votes','desc')->take(6)->get());
+
+        return Inertia::render('Frontend/Post/show',compact('community','post','posts'));
 
     }
 }

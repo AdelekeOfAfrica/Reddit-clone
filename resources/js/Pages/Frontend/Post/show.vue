@@ -59,8 +59,11 @@
 
             </div>
             <div class="w-full md:w-4/12 p-4">
-                <div class="m-2 p-2 bg-blue-700 text-white">
-                    <h2>Latest Communities </h2>
+                <div class="m-2 p-2 mt-2">
+                    <PostList :posts="posts.data" :community="community">
+                        <template #title>Popular Post </template>
+                    </PostList>
+                     <!-- added the postlist component -->
                 </div>
             </div>
         </section>
@@ -70,11 +73,13 @@
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue"
 import {  Link, useForm } from '@inertiajs/vue3'
+import PostList from "@/components/PostList.vue"
 
 
 const props= defineProps({
     community:Object(),
-    post:Object
+    post:Object,
+    posts:Object
 });
 
 
