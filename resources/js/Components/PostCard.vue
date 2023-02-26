@@ -24,7 +24,7 @@
         <div class="flex">
           Posted by
           <span class="font-semibold mx-1">{{ post.username }}</span>
-          {{ post.created_at }}
+          {{post.created_at }}
         </div>
       </div>
       <Link

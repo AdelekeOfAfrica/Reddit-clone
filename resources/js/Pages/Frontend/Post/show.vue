@@ -12,8 +12,8 @@
                 </div>
                 
                 <div class="m-2 p-2 bg-white">
-                    <span class="text-sm text-slate-400">posted by {{post.data.username}}</span> <!-- added the post.data.username cause of the resources added to it  -->
-                    
+                    <span class="text-sm text-slate-400 p-2">posted by {{post.data.username}}</span> <!-- added the post.data.username cause of the resources added to it  -->
+                    <span class="text-sm text-slate-400 ">{{post.data.created_at}}</span>        
                     <div class="flex flex-col md:flex-row" v-if="$page.props.auth.auth_check"> <!-- this is used to check if the user is logged in and post.data.owner is checking if you created the post -->
                         <Link v-if="can_update" class="font-semibold hover:text-blue-400 text-blue-600 mr-3" :href="route('communities.posts.edit',[community.slug, post.data.slug])">
                             Edit  <!-- we are using community.slug, post.data.slug cause these are the 2 that were passed from the url -->
